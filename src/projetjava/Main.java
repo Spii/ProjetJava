@@ -147,7 +147,7 @@ public class Main {
         String vainqueur = isVainqueur(joueurs);
         while (vainqueur == "None")
         {
-            joueurs = cycle();
+            joueurs = cycle(joueurs);
             vainqueur = isVainqueur(joueurs);
         }
         fin(vainqueur);

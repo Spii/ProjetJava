@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projetjava;
+import java.util.ArrayList;
 
 /**
  *
@@ -44,7 +45,12 @@ public class Joueur {
     public void rejoindre(Role role){
         this.setRole(role);
     }
-    public void quitter(Joueur joueur){
-        // à completer
+    public void quitter(Joueur joueur,ArrayList<Joueur> joueurs){
+        System.out.println("Le joueur "+this.nom+" nous a quitté");
+        for(int i=0;i<joueurs.size();i++){
+            if(joueurs.get(i).nom.equals(this.nom)){
+                joueurs.remove(i);
+            }
+        }
     }
 }
