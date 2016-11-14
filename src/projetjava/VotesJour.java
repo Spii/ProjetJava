@@ -4,16 +4,12 @@
  * and open the template in the editor.
  */
 package projetjava;
+
 import java.util.ArrayList;
 /**
  *
  * @author ISEN
  */
-public class Villageois extends Role{
-    
-    public Villageois(Joueur joueur){
-        super(joueur);
-        this.nomRole="Villageois";
-        this.camp="Villageois";
-    }
+public interface VotesJour{
+    public int vote(ArrayList<Joueur> joueurs);
 }

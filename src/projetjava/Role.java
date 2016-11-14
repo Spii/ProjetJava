@@ -11,11 +11,13 @@ import java.util.Scanner;
  *
  * @author ISEN
  */
-abstract class Role implements vote{
+abstract class Role {
     
     Joueur joueur;
     String camp;
     String nomRole;
+    protected VotesJour voteJour = new VoteJourValide();
+    protected VotesNuit voteNuit = new VoteNuitNonValide();
     
     public Role(Joueur joueur){
         joueur.rejoindre(this);
@@ -26,18 +28,13 @@ abstract class Role implements vote{
     public String getCamp(){
         return this.camp;
     }
+    public int voteNuit(ArrayList<Joueur> joueurs)
+    {
+        return voteNuit.vote(joueurs);
+    }
     
-    @Override
-    public int voteJour(ArrayList<Joueur> joueurs){
-        System.out.println("J'appelle le joueur "+this.joueur.getNom()+" à voter.");
-        System.out.println("Appuyer sur entré quand vous êtes prêt à voter.");
-        Scanner reader =new Scanner(System.in);
-        reader.nextLine();
-        System.out.println("0 : Vote blanc");
-        for( int i=0; i< joueurs.size() ;i++){
-            System.out.println((i+1)+" : "+joueurs.get(i).getNom());
-        }
-        String joueurId = reader.nextLine();
-        return (Integer.parseInt(joueurId)-1);     
+    public int voteJour (ArrayList<Joueur> joueurs)
+    {
+        return voteJour.vote(joueurs);
     }
 }

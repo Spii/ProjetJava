@@ -10,7 +10,6 @@ import java.util.ArrayList;
  *
  * @author ISEN
  */
-public interface vote {
-    public int voteJour(ArrayList<Joueur> joueurs);
-    public int voteNuit(ArrayList <Joueur> joueurs);
+public interface VotesNuit{
+    public int vote(ArrayList<Joueur> joueurs);
 }

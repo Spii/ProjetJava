@@ -101,7 +101,7 @@ public class Main {
             nbrJoueur = Integer.parseInt(nombreJoueur);
         }
         catch ( NumberFormatException e){
-            initialisation();
+            return initialisation();
         }
         int nbrLoup=nbrJoueur/3;
         System.out.println("Combien voulez vous de loup-garous ? (nombre conseillé :"+nbrLoup+")");
