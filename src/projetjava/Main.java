@@ -13,6 +13,33 @@ import java.awt.Robot;
  * @author ISEN
  */
 public class Main {
+    public static void pause()
+    {
+        try
+        {
+            if (System.getProperty("os.name").startsWith("Windows")){
+                Runtime.getRuntime().exec("cls");
+            }
+            else{
+                Runtime.getRuntime().exec("clear");
+            }
+        }
+        catch(Exception excpt){
+            try {
+                Robot pressbot = new Robot();
+                pressbot.keyPress(17);
+                pressbot.keyPress(76);
+                pressbot.keyRelease(17);
+                pressbot.keyRelease(76); 
+            } 
+            catch (Exception ex) {
+            }
+        }
+        for (int j=0;j<100000000;j++)
+        {
+            //Pause
+        }
+    }
 
     public static ArrayList<Joueur> initialisation(){
         int nbrJoueur=0;
@@ -68,29 +95,7 @@ public class Main {
             System.out.println("Votre rôle est : "+joueurs.get(i).getRole().nomRole);
             System.out.println("Appuyer sur entré pour masquer");
             reader.nextLine();
-            try{
-                if (System.getProperty("os.name").startsWith("Windows")){
-                    Runtime.getRuntime().exec("cls");
-                }
-                else{
-                    Runtime.getRuntime().exec("clear");
-                }
-            }
-            catch(Exception excpt){
-                try {
-                    Robot pressbot = new Robot();
-                    pressbot.keyPress(17);
-                    pressbot.keyPress(76);
-                    pressbot.keyRelease(17);
-                    pressbot.keyRelease(76); 
-                } 
-                catch (Exception ex) {
-                }
-            }
-            for (int j=0;j<100000000;j++)
-            {
-                //Pause
-            }
+            pause();
         }
         
         for (Joueur i : joueurs){
@@ -106,6 +111,13 @@ public class Main {
         // TODO code application logic here
         ArrayList<Joueur> joueurs = new ArrayList();
         joueurs = initialisation();
+        String vainqueur = isVainqueur(joueurs);
+        while (vainqueur == "None")
+        {
+            joueurs = cycle();
+            vainqueur = isVainqueur(joueurs);
+        }
+        fin(vainqueur);
     }
     
 }
