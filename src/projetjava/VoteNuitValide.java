@@ -9,14 +9,14 @@ import java.util.Scanner;
  */
 public class VoteNuitValide implements VotesNuit{
     
-    public int vote(ArrayList<Joueur> joueurs){
+    public int vote(ArrayList<Joueur> joueurs)
+    {
         for( int i=0; i< joueurs.size() ;i++){
             if("Loup Garou".equals(joueurs.get(i).getRole().getCamp())){
                 joueurs.remove(i);
                 i--;
             }
         }
-        System.out.println("J'appelle le joueur "+this.+" à voter.");
         System.out.println("Appuyer sur entré quand vous êtes prêt à voter.");
         Scanner reader =new Scanner(System.in);
         reader.nextLine();

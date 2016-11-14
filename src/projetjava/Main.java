@@ -59,6 +59,12 @@ public class Main {
         System.out.println("La nuit tombe.");
         System.out.println("Les loups Garous se réveillent.");
         attente();
+        for (ListIterator<Joueur> iter = joueurs.listIterator(); iter.hasNext(); ) {
+            Joueur element = iter.next();
+            System.out.println("J'appelle le Joueur ");
+            
+        }
+        
         return joueurs;
     }
     
