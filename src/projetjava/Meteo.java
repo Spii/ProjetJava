@@ -9,10 +9,12 @@ package projetjava;
  *
  * @author ISEN
  */
-abstract public class Evenemment {
-    float proba;
+abstract public class Meteo extends Evenemment {
+    int duree;
     
-    public Evenemment(){
-        this.proba = (float) Math.random();
-    }
+    public Meteo(){
+        super();
+        this.duree =(int)(Math.random()*2+1);
+    }    
+    abstract public void afficherTemps();
 }

@@ -9,10 +9,13 @@ package projetjava;
  *
  * @author ISEN
  */
-abstract public class Evenemment {
-    float proba;
-    
-    public Evenemment(){
-        this.proba = (float) Math.random();
+public class BeauTemps extends Meteo {
+    public BeauTemps(){
+        super();
+    }
+     
+    @Override
+    public void afficherTemps(){
+        System.out.println("Il fait beau aujourd'hui, le ciel est dégagée !");
     }
 }

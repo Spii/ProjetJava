@@ -9,10 +9,13 @@ package projetjava;
  *
  * @author ISEN
  */
-abstract public class Evenemment {
-    float proba;
-    
-    public Evenemment(){
-        this.proba = (float) Math.random();
+public class Tempete extends Meteo {
+    public Tempete(){
+        super();
     }
+    
+    @Override
+    public void afficherTemps(){
+    System.out.println("Attention aujourd'hui une tempête traverse le village !!!");
+}
 }

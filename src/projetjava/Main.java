@@ -131,11 +131,6 @@ public class Main {
             reader.nextLine();
             clear();
         }
-        
-        for (Joueur i : joueurs){
-            
-        }
-        
         return joueurs;
     }
     /**
@@ -145,13 +140,13 @@ public class Main {
         // TODO code application logic here
         ArrayList<Joueur> joueurs = new ArrayList();
         joueurs = initialisation();
-        String vainqueur = isVainqueur(joueurs);
+        /*String vainqueur = isVainqueur(joueurs);
         while (vainqueur == "None")
         {
             joueurs = cycle();
             vainqueur = isVainqueur(joueurs);
         }
-        fin(vainqueur);
+        fin(vainqueur);*/
     }
     
 }

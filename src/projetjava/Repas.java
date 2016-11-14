@@ -5,12 +5,11 @@
  */
 package projetjava;
 import java.util.ArrayList;
-import java.lang.Math;
 /**
  *
  * @author ISEN
  */
-public class Repas extends Evenemment{
+abstract public class Repas extends Evenemment{
     String hote;
     ArrayList<Joueur> participant;
     

@@ -6,7 +6,6 @@
 package projetjava;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 /**
  *
@@ -28,6 +27,7 @@ abstract class Role implements vote{
         return this.camp;
     }
     
+    @Override
     public int voteJour(ArrayList<Joueur> joueurs){
         System.out.println("J'appelle le joueur "+this.joueur.getNom()+" à voter.");
         System.out.println("Appuyer sur entré quand vous êtes prêt à voter.");
