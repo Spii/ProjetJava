@@ -16,6 +16,11 @@ import java.awt.Robot;
  */
 public class Main {
     
+    public static void fin(String vainqueurs)
+    {
+        System.out.println("Le camp des "+ vainqueurs + " a défoncé ses adversaires, la victoire leur appartient !");
+    }
+    
     public static String isVainqueur(ArrayList<Joueur> joueurs)
     {
         int nbrLoup = 0;
@@ -69,7 +74,7 @@ public class Main {
             catch (Exception ex) {
             }
         }
-        for (int j=0;j<100000000;j++)
+        for (int j=0;j<1000000000;j++)
         {
             //Pause
         }
@@ -137,7 +142,6 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         ArrayList<Joueur> joueurs = new ArrayList();
         joueurs = initialisation();
         String vainqueur = isVainqueur(joueurs);
