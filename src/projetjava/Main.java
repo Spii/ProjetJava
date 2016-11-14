@@ -15,6 +15,12 @@ import java.awt.Robot;
  * @author ISEN
  */
 public class Main {
+    public static void attente()
+    {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Appuyez sur \"entré\" pour continuer");
+        reader.nextLine();
+    }
     
     public static void fin(String vainqueurs)
     {
@@ -49,6 +55,10 @@ public class Main {
     
     public static ArrayList<Joueur> cycle(ArrayList<Joueur> joueurs)
     {
+        clear();
+        System.out.println("La nuit tombe.");
+        System.out.println("Les loups Garous se réveillent.");
+        attente();
         return joueurs;
     }
     
@@ -70,13 +80,15 @@ public class Main {
                 pressbot.keyPress(76);
                 pressbot.keyRelease(17);
                 pressbot.keyRelease(76); 
+                pressbot.keyRelease(17);
+                pressbot.keyRelease(76);
+                pressbot.keyRelease(17);
+                pressbot.keyRelease(76);
+                pressbot.keyRelease(17);
+                pressbot.keyRelease(76);
             } 
             catch (Exception ex) {
             }
-        }
-        for (int j=0;j<1000000000;j++)
-        {
-            //Pause
         }
     }
 
@@ -108,9 +120,10 @@ public class Main {
         int roleRestant = nbrJoueur;
         ArrayList<Joueur> joueurs = new ArrayList();
         System.out.println("Le nombre de loup-garous a été fixé à: "+nbrLoup);
+        clear();
         for(int i =0; i<nbrJoueur ;i++){
-            System.out.println("J'appelle le joueur numéro : "+(i+1)+" (Appuyer sur entré quand le joueur est prêt)");
-            reader.nextLine();
+            System.out.println("J'appelle le joueur numéro : "+(i+1));
+            attente();
             System.out.println("Entrez votre pseudo");
             String nomJoueur = reader.nextLine();
             String joueur ="joueur"+(i+1);
@@ -132,7 +145,7 @@ public class Main {
             }
             roleRestant--;
             System.out.println("Votre rôle est : "+joueurs.get(i).getRole().nomRole);
-            System.out.println("Appuyer sur entré pour masquer");
+            attente();
             reader.nextLine();
             clear();
         }
