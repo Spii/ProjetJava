@@ -37,7 +37,7 @@ public class Main {
         }
         if (nbrVillageois == 0)
         {
-            return "Loup Garou";
+            return "Loups Garous";
         }
         return "None";
     }
