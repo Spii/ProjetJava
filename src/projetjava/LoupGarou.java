@@ -19,9 +19,10 @@ public class LoupGarou extends Role{
         this.nomRole="Loup Garou";
     }
     
+    @Override
     public int voteNuit(ArrayList<Joueur> joueurs){
         for( int i=0; i< joueurs.size() ;i++){
-            if(joueurs.get(i).getRole().getCamp() == "Loup Garou"){
+            if("Loup Garou".equals(joueurs.get(i).getRole().getCamp())){
                 joueurs.remove(i);
                 i--;
             }
