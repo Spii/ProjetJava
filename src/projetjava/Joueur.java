@@ -12,10 +12,12 @@ package projetjava;
 public class Joueur {
     private String nom;
     private Role role;
+    private int forceVote;
     
     public Joueur(){
         this.nom= "Joueur1";
         this.role= null;
+        this.forceVote = 1;
     }
     
     public Joueur(String nom){
@@ -28,6 +30,9 @@ public class Joueur {
     }
     public void setRole(Role role){
         this.role = role;
+    }
+    public void setForceVote(int forceVote){
+        this.forceVote=forceVote;
     }
     public String getNom(){
         return this.nom;

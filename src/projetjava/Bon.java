@@ -5,10 +5,20 @@
  */
 package projetjava;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ISEN
  */
-public class Bon {
-    //force vote +1
+public class Bon extends Repas{
+    
+    public Bon(ArrayList<Joueur> joueurs){
+        super(joueurs);
+    }
+    public void giveAvantage(){
+        int nb =(int)(Math.random()*(this.participant.size())+1);
+        int force = 1+(int)(Math.random()*2);
+        this.participant.get(nb).setForceVote(force);
+    }
 }

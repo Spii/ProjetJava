@@ -12,7 +12,7 @@ import java.awt.Robot;
  *
  * @author ISEN
  */
-public class Cycle {
+public class Main {
 
     public static ArrayList<Joueur> initialisation(){
         int nbrJoueur=0;
@@ -45,7 +45,7 @@ public class Cycle {
         for(int i =0; i<nbrJoueur ;i++){
             System.out.println("J'appelle le joueur numéro : "+(i+1)+" (Appuyer sur entré quand le joueur est prêt)");
             reader.nextLine();
-            System.out.println("Entrez votre speudo");
+            System.out.println("Entrez votre pseudo");
             String nomJoueur = reader.nextLine();
             String joueur ="joueur"+(i+1);
             joueurs.add(new Joueur(nomJoueur));
