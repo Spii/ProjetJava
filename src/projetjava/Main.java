@@ -5,6 +5,8 @@
  */
 package projetjava;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 import java.lang.Math;
 import java.awt.Robot;
@@ -13,7 +15,39 @@ import java.awt.Robot;
  * @author ISEN
  */
 public class Main {
-    public static void pause()
+    
+    public static String isVainqueur(ArrayList<Joueur> joueurs)
+    {
+        int nbrLoup = 0;
+        int nbrVillageois = 0;
+        for (ListIterator<Joueur> iter = joueurs.listIterator(); iter.hasNext(); ) {
+            Joueur element = iter.next();
+            if (element.getRole().getCamp() == "Villageois")
+            {
+                nbrVillageois++;
+            }
+            if (element.getRole().getCamp() == "Loup Garou")
+            {
+                nbrLoup++;
+            }
+        }
+        if (nbrLoup == 0)
+        {
+            return "Villageois";
+        }
+        if (nbrVillageois == 0)
+        {
+            return "Loup Garou";
+        }
+        return "None";
+    }
+    
+    public static ArrayList<Joueur> cycle(ArrayList<Joueur> joueurs)
+    {
+        return joueurs;
+    }
+    
+    public static void clear()
     {
         try
         {
@@ -95,7 +129,7 @@ public class Main {
             System.out.println("Votre rôle est : "+joueurs.get(i).getRole().nomRole);
             System.out.println("Appuyer sur entré pour masquer");
             reader.nextLine();
-            pause();
+            clear();
         }
         
         for (Joueur i : joueurs){
