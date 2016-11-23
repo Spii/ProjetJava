@@ -18,7 +18,7 @@ public class Main {
     public static void attente()
     {
         Scanner reader = new Scanner(System.in);
-        System.out.println("Appuyez sur \"entré\" pour continuer");
+        System.out.println("Appuyez sur \"entrée\" pour continuer");
         reader.nextLine();
     }
     
@@ -53,18 +53,97 @@ public class Main {
         return "None";
     }
     
+    public static ArrayList<Joueur> voteNuit(ArrayList<Joueur> joueurs)
+    {
+        int[] tablVote = new int[joueurs.size()+1];
+        for (ListIterator<Joueur> iter = joueurs.listIterator(); iter.hasNext(); ) 
+        {
+            Joueur element = iter.next();
+            System.out.println("J'appelle le joueur "+element.getNom());
+            attente();
+            tablVote[element.getRole().voteNuit.vote(joueurs)]++;
+            clear();
+        }
+        for (int j=0;j<=joueurs.size();j++)
+        {
+            System.out.println(tablVote[j]);
+        }
+        
+        int maxI1 = 1;
+        int max2 = 0;
+        for (int i=2;i<=joueurs.size();i++)
+        {
+            if (tablVote[maxI1] <= tablVote[i])
+            {
+                max2 = tablVote[maxI1];
+                maxI1 = i;
+            }
+        }
+        System.out.println("______");
+        System.out.println(maxI1);
+        System.out.println(max2);
+        if (tablVote[maxI1]==max2)
+        {
+            System.out.println("Personne n'est mort pendant la nuit.");
+            attente();
+            return joueurs;
+        }
+        System.out.println("Le joueur "+joueurs.get(maxI1-1).getNom()+" est mort dévoré par les loups.");
+        attente();
+        joueurs.remove(maxI1-1);
+        return joueurs;
+    }
+    
+    public static ArrayList<Joueur> voteJour(ArrayList<Joueur> joueurs)
+    {
+        int[] tablVote = new int[joueurs.size()+1];
+        for (ListIterator<Joueur> iter = joueurs.listIterator(); iter.hasNext(); ) 
+        {
+            Joueur element = iter.next();
+            System.out.println("J'appelle le joueur "+element.getNom()+" à voter.");
+            tablVote[element.getRole().voteJour.vote(joueurs)]++;
+            clear();
+            
+        }
+        int maxI1 = 1;
+        int maxI2 = 1;
+        for (int i=2;i<=joueurs.size();i++)
+        {
+            if (tablVote[maxI1] <= tablVote[i])
+            {
+                maxI2 = maxI1;
+                maxI1 = i;
+            }
+        }
+        if (tablVote[maxI1]==tablVote[maxI2])
+        {
+            System.out.println("Personne n'est mort à cause de l'égalité.");
+            attente();
+            return joueurs;
+        }
+        System.out.println("Le joueur "+joueurs.get(maxI1-1).getNom()+" est mort pendu par la justice populaire.");
+        attente();
+        joueurs.remove(maxI1-1);
+        return joueurs;
+    }
+    
     public static ArrayList<Joueur> cycle(ArrayList<Joueur> joueurs)
     {
         clear();
         System.out.println("La nuit tombe.");
         System.out.println("Les loups Garous se réveillent.");
         attente();
-        for (ListIterator<Joueur> iter = joueurs.listIterator(); iter.hasNext(); ) {
-            Joueur element = iter.next();
-            System.out.println("J'appelle le Joueur ");
-            
-        }
-        
+        System.out.println("Les loups Garous se réendorment dés qu'ils ont fini de choisir leur victime.");
+        attente();
+        System.out.println("Nous allons passer au petit déjeuner.");
+        attente();
+        clear();
+        joueurs = voteNuit(joueurs);
+        System.out.println("Nous allons passer au vote quotidien.");
+        System.out.println("Faites vos délibérations.");
+        attente();
+        System.out.println("Voici le moment des votes.");
+        joueurs = voteJour(joueurs);
         return joueurs;
     }
     
@@ -96,6 +175,7 @@ public class Main {
             catch (Exception ex) {
             }
         }
+        attente();
     }
 
     public static ArrayList<Joueur> initialisation(){
@@ -126,10 +206,10 @@ public class Main {
         int roleRestant = nbrJoueur;
         ArrayList<Joueur> joueurs = new ArrayList();
         System.out.println("Le nombre de loup-garous a été fixé à: "+nbrLoup);
+        attente();
         clear();
         for(int i =0; i<nbrJoueur ;i++){
             System.out.println("J'appelle le joueur numéro : "+(i+1));
-            attente();
             System.out.println("Entrez votre pseudo");
             String nomJoueur = reader.nextLine();
             String joueur ="joueur"+(i+1);
@@ -151,8 +231,6 @@ public class Main {
             }
             roleRestant--;
             System.out.println("Votre rôle est : "+joueurs.get(i).getRole().nomRole);
-            attente();
-            reader.nextLine();
             clear();
         }
         return joueurs;

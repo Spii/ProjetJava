@@ -16,7 +16,6 @@ import java.util.Scanner;
 public class VoteJourValide implements VotesJour{
     
     public int vote(ArrayList<Joueur> joueurs){
-        System.out.println("J'appelle le joueur "+/*nom du joueur+*/" à voter.");
         System.out.println("Appuyer sur entré quand vous êtes prêt à voter.");
         Scanner reader =new Scanner(System.in);
         reader.nextLine();
@@ -25,6 +24,6 @@ public class VoteJourValide implements VotesJour{
             System.out.println((i+1)+" : "+joueurs.get(i).getNom());
         }
         String joueurId = reader.nextLine();
-        return (Integer.parseInt(joueurId)-1);     
+        return (Integer.parseInt(joueurId));     
     }
 }

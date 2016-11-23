@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class VoteJourNonValide implements VotesJour{
     
     public int vote(ArrayList<Joueur> joueurs){
-        System.out.println("Je ne peux pas voter");
-        return (-1);     
+        System.out.println("Vous n'êtes pas éligible au vote journalier.");
+        return (0);  
     }
 }

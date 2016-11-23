@@ -10,12 +10,15 @@ import java.util.Scanner;
 public class VoteNuitNonValide implements VotesNuit{
     
     public int vote(ArrayList<Joueur> joueurs){
-        System.out.println("Vous n'êtes pas loup et vous ne pouvez pas voter ce soir");
-        System.out.println("Merci d'entrer le chiffre "+alea (à foutre en str)+" pour simuler un vote");
+        String alea = String.valueOf((int) (Math.random()*10));
+        System.out.println("Vous n'êtes pas loup et vous mangez des fruits au petit déj.");
+        System.out.println("Merci d'entrer le chiffre "+alea+" pour manger votre mandarine.");
         Scanner reader = new Scanner(System.in);
         String vote = reader.nextLine();
-        while (vote!=alea)
-        return (-1);     
+        while (vote.equals(alea) == false)
+        {
+            vote = reader.nextLine();
+        }  
+        return (0);
     }
 }
-
