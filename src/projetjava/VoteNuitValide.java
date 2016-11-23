@@ -17,6 +17,16 @@ public class VoteNuitValide implements VotesNuit{
             System.out.println((i+1)+" : "+joueurs.get(i).getNom());
         }
         String joueurId = reader.nextLine();
+        try {
+            int id = Integer.parseInt(joueurId);
+        }
+        catch (NumberFormatException e ){
+            joueurId = "0";
+        }
+        if (Integer.parseInt(joueurId) > joueurs.size()+1 || Integer.parseInt(joueurId) < 0)
+        {
+            joueurId = "0";
+        }
         return (Integer.parseInt(joueurId));
     }
 }

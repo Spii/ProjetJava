@@ -64,10 +64,6 @@ public class Main {
             tablVote[element.getRole().voteNuit.vote(joueurs)]++;
             clear();
         }
-        for (int j=0;j<=joueurs.size();j++)
-        {
-            System.out.println(tablVote[j]);
-        }
         
         int maxI1 = 1;
         int max2 = 0;
@@ -79,9 +75,6 @@ public class Main {
                 maxI1 = i;
             }
         }
-        System.out.println("______");
-        System.out.println(maxI1);
-        System.out.println(max2);
         if (tablVote[maxI1]==max2)
         {
             System.out.println("Personne n'est mort pendant la nuit.");
@@ -129,7 +122,6 @@ public class Main {
     
     public static ArrayList<Joueur> cycle(ArrayList<Joueur> joueurs)
     {
-        clear();
         System.out.println("La nuit tombe.");
         System.out.println("Les loups Garous se réveillent.");
         attente();
@@ -143,7 +135,10 @@ public class Main {
         System.out.println("Faites vos délibérations.");
         attente();
         System.out.println("Voici le moment des votes.");
+        attente();
+        clear();
         joueurs = voteJour(joueurs);
+        clear();
         return joueurs;
     }
     
@@ -189,6 +184,10 @@ public class Main {
         catch ( NumberFormatException e){
             return initialisation();
         }
+        if (Integer.parseInt(nombreJoueur) < 3)
+        {
+            return initialisation();
+        }
         int nbrLoup=nbrJoueur/3;
         System.out.println("Combien voulez vous de loup-garous ? (nombre conseillé :"+nbrLoup+")");
         String nombreLoup = reader.nextLine();
@@ -231,6 +230,7 @@ public class Main {
             }
             roleRestant--;
             System.out.println("Votre rôle est : "+joueurs.get(i).getRole().nomRole);
+            attente();
             clear();
         }
         return joueurs;
