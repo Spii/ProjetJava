@@ -99,16 +99,16 @@ public class Main {
             
         }
         int maxI1 = 1;
-        int maxI2 = 1;
+        int max2 = 0;
         for (int i=2;i<=joueurs.size();i++)
         {
             if (tablVote[maxI1] <= tablVote[i])
             {
-                maxI2 = maxI1;
+                max2 = tablVote[maxI1];
                 maxI1 = i;
             }
         }
-        if (tablVote[maxI1]==tablVote[maxI2])
+        if (tablVote[maxI1]==max2)
         {
             System.out.println("Personne n'est mort à cause de l'égalité.");
             attente();
