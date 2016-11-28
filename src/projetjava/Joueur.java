@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package projetjava;
+ 
+
 import java.util.ArrayList;
 
 /**
@@ -41,16 +37,11 @@ public class Joueur {
     public Role getRole(){
         return this.role;
     }
+    public int getForceVote(){
+        return this.forceVote;
+    }
     
     public void rejoindre(Role role){
         this.setRole(role);
-    }
-    public void quitter(Joueur joueur,ArrayList<Joueur> joueurs){
-        System.out.println("Le joueur "+this.nom+" nous a quitté");
-        for(int i=0;i<joueurs.size();i++){
-            if(joueurs.get(i).nom.equals(this.nom)){
-                joueurs.remove(i);
-            }
-        }
     }
 }

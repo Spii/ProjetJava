@@ -1,4 +1,6 @@
-package projetjava;
+ 
+
+ 
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
